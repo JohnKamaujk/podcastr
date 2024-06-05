@@ -1,3 +1,5 @@
+import LeftSidebar from "@/components/LeftSidebar";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -5,7 +7,7 @@ export default function RootLayout({
 }>) {
   return (
     <div>
-      <p className="text-white-1">LEFT SIDEBAR</p>
+      <LeftSidebar />
       <div>{children}</div>
       <p className="text-white-1">RIGHT SIDEBAR</p>
     </div>
