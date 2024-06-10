@@ -13,7 +13,9 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
+import { Loader } from "lucide-react";
 import {
   Select,
   SelectContent,
@@ -42,6 +44,8 @@ const CreatePodcast = () => {
     },
   });
   const [voiceType, setVoiceType] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   return (
     <section className="mt-10 flex flex-col">
       <h1 className="text-20 font-bold text-white-1">Create Podcast</h1>
@@ -129,6 +133,21 @@ const CreatePodcast = () => {
             <GeneratePodcast />
 
             <GenerateThumbnail />
+            <div className="mt-10 w-full">
+              <Button
+                type="submit"
+                className="text-16 w-full bg-orange-1 py-4 font-extrabold text-white-1 transition-all duration-500 hover:bg-black-1"
+              >
+                {isSubmitting ? (
+                  <>
+                    Submitting
+                    <Loader size={20} className="animate-spin ml-2" />
+                  </>
+                ) : (
+                  "Submit & Publish Podcast"
+                )}
+              </Button>
+            </div>
           </div>
         </form>
       </Form>
