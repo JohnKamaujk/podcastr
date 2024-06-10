@@ -4,7 +4,6 @@ import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-
 import {
   Form,
   FormControl,
@@ -24,6 +23,8 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
+import GeneratePodcast from "@/components/GeneratePodcast";
+import GenerateThumbnail from "@/components/GenerateThumbnail";
 
 const voiceCategories = ["alloy", "shimmer", "nova", "echo", "fable", "onyx"];
 
@@ -72,7 +73,7 @@ const CreatePodcast = () => {
                 Select AI Voice
               </Label>
 
-              <Select onValueChange={(value)=> setVoiceType(value)}>
+              <Select onValueChange={(value) => setVoiceType(value)}>
                 <SelectTrigger
                   className={cn(
                     "text-16 w-full border-none bg-black-1 text-gray-1 focus-visible:ring-offset-orange-1"
@@ -123,6 +124,11 @@ const CreatePodcast = () => {
                 </FormItem>
               )}
             />
+          </div>
+          <div className="flex flex-col pt-10">
+            <GeneratePodcast />
+
+            <GenerateThumbnail />
           </div>
         </form>
       </Form>
