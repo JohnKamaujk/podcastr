@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
@@ -39,6 +40,7 @@ const CreatePodcast = () => {
       podcastDescription: "",
     },
   });
+  const [voiceType, setVoiceType] = useState<string | null>(null);
   return (
     <section className="mt-10 flex flex-col">
       <h1 className="text-20 font-bold text-white-1">Create Podcast</h1>
@@ -70,7 +72,7 @@ const CreatePodcast = () => {
                 Select AI Voice
               </Label>
 
-              <Select>
+              <Select onValueChange={(value)=> setVoiceType(value)}>
                 <SelectTrigger
                   className={cn(
                     "text-16 w-full border-none bg-black-1 text-gray-1 focus-visible:ring-offset-orange-1"
@@ -92,13 +94,13 @@ const CreatePodcast = () => {
                     </SelectItem>
                   ))}
                 </SelectContent>
-                {/* {voiceType && (
+                {voiceType && (
                   <audio
                     src={`/${voiceType}.mp3`}
                     autoPlay
                     className="hidden"
                   />
-                )} */}
+                )}
               </Select>
             </div>
 
