@@ -16,6 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Loader } from "lucide-react";
+import { Id } from "@/convex/_generated/dataModel";
 import {
   Select,
   SelectContent,
@@ -43,8 +44,22 @@ const CreatePodcast = () => {
       podcastDescription: "",
     },
   });
-  const [voiceType, setVoiceType] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const [imagePrompt, setImagePrompt] = useState("");
+  const [imageStorageId, setImageStorageId] = useState<Id<"_storage"> | null>(
+    null
+  );
+  const [imageUrl, setImageUrl] = useState("");
+
+  const [audioUrl, setAudioUrl] = useState("");
+  const [audioStorageId, setAudioStorageId] = useState<Id<"_storage"> | null>(
+    null
+  );
+  const [audioDuration, setAudioDuration] = useState(0);
+
+  const [voiceType, setVoiceType] = useState<string | null>(null);
+  const [voicePrompt, setVoicePrompt] = useState("");
 
   return (
     <section className="mt-10 flex flex-col">
@@ -130,7 +145,15 @@ const CreatePodcast = () => {
             />
           </div>
           <div className="flex flex-col pt-10">
-            <GeneratePodcast />
+            <GeneratePodcast
+              setAudioStorageId={setAudioStorageId}
+              setAudio={setAudioUrl}
+              voiceType={voiceType!}
+              audio={audioUrl}
+              voicePrompt={voicePrompt}
+              setVoicePrompt={setVoicePrompt}
+              setAudioDuration={setAudioDuration}
+            />
 
             <GenerateThumbnail />
             <div className="mt-10 w-full">
