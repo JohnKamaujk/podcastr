@@ -14,6 +14,8 @@ const useGeneratePodcast = ({
   const [isGenerating, setIsGenerating] = useState(false);
 
   const generatePodcast = async () => {
+    setIsGenerating(true);
+    setAudio("");
     if (!voicePrompt) {
       return setIsGenerating(false);
     }
