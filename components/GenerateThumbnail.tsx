@@ -1,9 +1,44 @@
-import React from 'react'
+import { useState } from "react";
+import { Button } from "./ui/button";
+import { cn } from "@/lib/utils";
 
-const GenerateThumbnail = () => {
+import { GenerateThumbnailProps } from "@/types";
+
+const GenerateThumbnail = ({
+  setImage,
+  setImageStorageId,
+  image,
+  imagePrompt,
+  setImagePrompt,
+}: GenerateThumbnailProps) => {
+  const [isAiThumbnail, setIsAiThumbnail] = useState(false);
+
   return (
-    <div>GenerateThumbnail</div>
-  )
-}
+    <>
+      <div className="generate_thumbnail">
+        <Button
+          type="button"
+          variant="plain"
+          onClick={() => setIsAiThumbnail(true)}
+          className={cn("", {
+            "bg-black-6": isAiThumbnail,
+          })}
+        >
+          Use AI to generate thumbnail
+        </Button>
+        <Button
+          type="button"
+          variant="plain"
+          onClick={() => setIsAiThumbnail(false)}
+          className={cn("", {
+            "bg-black-6": !isAiThumbnail,
+          })}
+        >
+          Upload custom image
+        </Button>
+      </div>
+    </>
+  );
+};
 
-export default GenerateThumbnail
+export default GenerateThumbnail;
