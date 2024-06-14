@@ -1,7 +1,7 @@
 import { GeneratePodcastProps } from "@/types";
+import React, { useState } from "react";
 import { Label } from "./ui/label";
 import { Textarea } from "./ui/textarea";
-import { useState } from "react";
 import { Button } from "./ui/button";
 import { Loader } from "lucide-react";
 import { useAction, useMutation } from "convex/react";
@@ -30,10 +30,12 @@ const useGeneratePodcast = ({
   const generatePodcast = async () => {
     setIsGenerating(true);
     setAudio("");
+
     if (!voicePrompt) {
       toast({
         title: "Please provide a voiceType to generate a podcast",
       });
+      console.log("no voice type");
       return setIsGenerating(false);
     }
 
@@ -42,6 +44,7 @@ const useGeneratePodcast = ({
         voice: voiceType,
         input: voicePrompt,
       });
+      console.log(response)
 
       const blob = new Blob([response], { type: "audio/mpeg" });
       const fileName = `podcast-${uuidv4()}.mp3`;
@@ -73,6 +76,7 @@ const useGeneratePodcast = ({
 
 const GeneratePodcast = (props: GeneratePodcastProps) => {
   const { isGenerating, generatePodcast } = useGeneratePodcast(props);
+
   return (
     <div>
       <div className="flex flex-col gap-2.5">
@@ -91,6 +95,7 @@ const GeneratePodcast = (props: GeneratePodcastProps) => {
         <Button
           type="submit"
           className="text-16 bg-orange-1 py-4 font-bold text-white-1"
+          onClick={generatePodcast}
         >
           {isGenerating ? (
             <>
