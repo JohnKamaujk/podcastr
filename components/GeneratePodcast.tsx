@@ -35,7 +35,6 @@ const useGeneratePodcast = ({
       toast({
         title: "Please provide a voiceType to generate a podcast",
       });
-      console.log("no voice type");
       return setIsGenerating(false);
     }
 
@@ -44,7 +43,6 @@ const useGeneratePodcast = ({
         voice: voiceType,
         input: voicePrompt,
       });
-      console.log(response)
 
       const blob = new Blob([response], { type: "audio/mpeg" });
       const fileName = `podcast-${uuidv4()}.mp3`;
