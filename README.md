@@ -19,7 +19,6 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 ## Learn More
 
-- [Next.js Documentation](https://nextjs.org/docs)
 - [Learn Next.js](https://nextjs.org/learn) .
 
 [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your!
