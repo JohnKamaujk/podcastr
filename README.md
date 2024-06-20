@@ -14,11 +14,6 @@ pnpm dev
 bun dev
 ```
 
-
-## Learn More
-
-- [Learn Next.js](https://nextjs.org/learn) .
-
 [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your!
 
 ## Deploy on Vercel
