@@ -14,7 +14,7 @@ pnpm dev
 bun dev
 ```
 
-[the Next.js GitHub repository](https://github.com/vercel/next.js/) - your!
+[the Next.js GitHub repository](https://github.com/vercel/next.js/)
 
 ## Deploy on Vercel
 
