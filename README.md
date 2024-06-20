@@ -15,8 +15,6 @@ bun dev
 ```
 
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically.
-
 ## Learn More
 
 - [Learn Next.js](https://nextjs.org/learn) .
