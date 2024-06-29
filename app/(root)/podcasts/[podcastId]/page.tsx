@@ -5,6 +5,7 @@ import { Id } from "@/convex/_generated/dataModel";
 import { useQuery } from "convex/react";
 import PodcastDetailPlayer from "@/components/PodcastDetailPlayer";
 import PodcastCard from "@/components/PodcastCard";
+import LoaderSpinner from "@/components/LoaderSpinner";
 
 const PodcastDetails = ({
   params: { podcastId },
@@ -16,6 +17,8 @@ const PodcastDetails = ({
   const similarPodcasts = useQuery(api.podcasts.getPodcastByVoiceType, {
     podcastId,
   });
+
+  if (!similarPodcasts || !podcast) return <LoaderSpinner />;
 
   return (
     <section className="flex w-full flex-col">
