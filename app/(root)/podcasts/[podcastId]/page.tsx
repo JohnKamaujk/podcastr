@@ -1,7 +1,16 @@
 import React from "react";
 import Image from "next/image";
+import { api } from "@/convex/_generated/api";
+import { Id } from "@/convex/_generated/dataModel";
+import { useQuery } from "convex/react";
 
-const PodcastDetails = ({ params }: { params: { podcastId: string } }) => {
+const PodcastDetails = ({
+  params: { podcastId },
+}: {
+  params: { podcastId: Id<"podcasts"> };
+}) => {
+  const podcast = useQuery(api.podcasts.getPodcastById, { podcastId });
+
   return (
     <section className="flex w-full flex-col">
       <header className="mt-9 flex items-center justify-between">
@@ -13,6 +22,7 @@ const PodcastDetails = ({ params }: { params: { podcastId: string } }) => {
             height={24}
             alt="headphone"
           />
+          <h2 className="text-16 font-bold text-white-1">{podcast?.views}</h2>
         </figure>
       </header>
     </section>
