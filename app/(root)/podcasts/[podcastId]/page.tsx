@@ -6,6 +6,7 @@ import { useQuery } from "convex/react";
 import PodcastDetailPlayer from "@/components/PodcastDetailPlayer";
 import PodcastCard from "@/components/PodcastCard";
 import LoaderSpinner from "@/components/LoaderSpinner";
+import EmptyState from "@/components/EmptyState";
 
 const PodcastDetails = ({
   params: { podcastId },
@@ -75,7 +76,11 @@ const PodcastDetails = ({
           </div>
         ) : (
           <>
-            <div></div>
+            <EmptyState
+              title="No similar podcasts found"
+              buttonLink="/discover"
+              buttonText="Discover more podcasts"
+            />
           </>
         )}
       </section>
