@@ -4,6 +4,8 @@ import { SignedIn, UserButton, useUser } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+import Header from "./Header";
+import Carousel from "./Carousel";
 
 const RightSidebar = () => {
   const { user } = useUser();
@@ -25,6 +27,10 @@ const RightSidebar = () => {
           </div>
         </Link>
       </SignedIn>
+      <section>
+        <Header headerTitle="Fans Like You" />
+        <Carousel />
+      </section>
     </section>
   );
 };
