@@ -13,8 +13,6 @@ yarn dev
 
 [the Next.js GitHub repository](https://github.com/vercel/next.js/)
 
-
-
 ## Deploy on Vercel
 
 (https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&).
