@@ -10,8 +10,6 @@ npm run dev
 yarn dev
 # or
 pnpm dev
-# or
-bun dev
 ```
 
 [the Next.js GitHub repository](https://github.com/vercel/next.js/)
