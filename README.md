@@ -8,10 +8,15 @@ First, run the develop:
 npm run dev
 # or
 yarn dev
-
+# or
+pnpm dev
+# or
+bun dev
 ```
 
 [the Next.js GitHub repository](https://github.com/vercel/next.js/)
+
+
 
 ## Deploy on Vercel
 
